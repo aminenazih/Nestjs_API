@@ -5,25 +5,119 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+ # NestJS MongoDB API
 
-## Description
+A RESTful API built with NestJS and MongoDB for managing users and posts.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Features
+
+- CRUD operations for users
+- MongoDB integration using Mongoose
+- Validation using class-validator
+- Global exception handling
+- Environment configuration
+
+## Prerequisites
+
+- Node.js (v14+)
+- npm or yarn
+- MongoDB Atlas account (or local MongoDB instance)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/nestjs-api-challenge.git
+cd nestjs-api-challenge
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory:
+```
+MONGODB_URI=mongodb+srv://username:password@cluster0.example.mongodb.net/nest-challenge?retryWrites=true&w=majority
+```
+
+## Running the application
+
+```bash
+# development mode
+npm run start
+
+# watch mode
+npm run start:dev
+
+# production mode
+npm run start:prod
+```
+
+The application will start on http://localhost:3000 by default.
+
+## API Endpoints
+
+### Users
+
+- `GET /users` - Get all users
+- `GET /users/:id` - Get a specific user
+- `POST /users` - Create a new user
+- `PATCH /users/:id` - Update a user
+- `DELETE /users/:id` - Delete a user
+
+### Example Requests
+
+#### Creating a user
+```bash
+curl -X POST http://localhost:3000/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "age": 30
+  }'
+```
+
+#### Getting all users
+```bash
+curl http://localhost:3000/users
+```
+
+## Project Structure
+
+```
+src/
+├── common/              # Common utilities, filters, etc.
+├── users/               # Users module
+│   ├── dto/             # Data Transfer Objects
+│   ├── entities/        # MongoDB schemas
+│   ├── users.controller.ts
+│   ├── users.module.ts
+│   └── users.service.ts
+├── posts/               # Posts module
+├── app.controller.ts
+├── app.module.ts
+├── app.service.ts
+└── main.ts
+```
+
+## Testing
+
+```bash
+# unit tests
+npm run test
+
+# e2e tests
+npm run test:e2e
+
+# test coverage
+npm run test:cov
+```
+
+## License
+
+This project is [MIT licensed](LICENSE). framework TypeScript starter repository.
 
 ## Project setup
 
